@@ -6,11 +6,11 @@ Module to keep useful functions
 from tensorflow import keras
 from keras import layers
 
-def imdb_model_setup(units_layer1:int, units_layer2:int, X_train, y_train, X_val, y_val)->tuple:
+def imdb_model_setup(units_layer1:int, units_layer2:int, activ_func:str, X_train, y_train, X_val, y_val)->tuple:
 
     model = keras.Sequential([
-                  layers.Dense(units_layer1, activation='relu'),
-                  layers.Dense(units_layer2, activation='relu'),
+                  layers.Dense(units_layer1, activation=activ_func),
+                  layers.Dense(units_layer2, activation=activ_func),
                   layers.Dense(1, activation="sigmoid")
               ])
 
